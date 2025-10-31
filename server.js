@@ -3,11 +3,13 @@ const express = require("express");
 const authRoutes = require("./routes/authRoutes");
 const jobsRoutes = require("./routes/jobsRoutes");
 const connectDB = require("./db/connect");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(cookieParser())
 
 // Mount routes
 app.use("/api/v1/auth", authRoutes);
